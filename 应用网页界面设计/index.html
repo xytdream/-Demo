@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>应用网页界面设计</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./iconfont/iconfont.css">
+    <style>
+        header{ height: 675px;background: url('./images/bg_photo.png') no-repeat; position: relative;}
+        header::after{ content:""; position: absolute; top: 0; left: 0; 
+            width: 100%; height: 100%; z-index: 1;
+            background-color: #3371a5; opacity: 0.8;
+        }
+        #head{ z-index: 99; overflow: hidden; height: 120px;}
+        #head .head_logo{ font-size: 20px; line-height: 20px; margin-top: 60px; float: left; font-family: "Adobe Heiti Std R";}
+        #head .head_list{ font-family: "MyriadPro-Regular"; font-size: 14px;margin: 36px 0 0 368px; overflow: hidden;}
+        #head .head_list li{ height:120px; float: left; border-left: 1px solid #256180; cursor: pointer;}
+        #head .head_list li:nth-child(1){ width: 178px; height: 100%;text-align: center; }
+        #head .head_list li:nth-child(1) div{ width: 34px; height: 32px; margin-left: 74px;}
+        #head .head_list li:nth-child(1) div img{ display: block; width: 32px; height: 22px;}
+        #head .head_list li:nth-child(2){ width: 155px; height: 100%;text-align: center; border-right: 1px solid #256180;}
+        #head .head_list li:nth-child(2) div{ width: 30px; height: 32px; margin-left: 64px;}
+        #head .head_list li:nth-child(2) div img{ display: block; width: 28px; height: 30px;}
+        #head .head_list .head_log{ margin:14px 0 0 54px; border: none; }
+        #head .head_list .head_log .signUp{ float:right; width: 96px; height: 34px; font-size: 14px; display: block; text-align: center;line-height: 34px;
+            background: linear-gradient(0deg,rgba(255,195,66,1),rgba(255,210,87,1)); border-radius: 50px;border: 5px solid rgba(6, 61, 108, 1);margin-top: -10px;
+        }
+       
+        #introduction{ border-top: 1px solid #256180;}
+        #introduction .container{ z-index: 99; overflow: hidden; height: 555px; display: grid;
+            grid-template-columns: 7fr 6fr; overflow: hidden;
+        }
+        #introduction .container .left{ margin-top: 63px;}
+        #introduction .container .left h2{ font-size: 27px; font-family: "Roboto-Medium"; color: #FFFFFF;text-shadow:0px 1px 0px rgba(1,1,1,0.75);}
+        #introduction .container .left h3{ font-size: 20px; font-family: "Roboto-Medium"; margin-top: 22px; color: #DDE6ED;text-shadow:0px 1px 0px rgba(1,1,1,0.75);}
+        #introduction .container .left p{ font-size: 17px; color: #DDE6ED; margin-top: 40px; display: block; width: 388px;}
+        #introduction .container .left .invite input{ width: 276px; height: 44px; margin-top: 58px; background: #082948; font-size: 14px; color: white; 
+            text-indent: 18px; border: none; outline: medium;
+        }
+        #introduction .container .left .invite input::-webkit-input-placeholder{ color: #FFFFFF;}
+        #introduction .container .left .invite input::-moz-input-placeholder{ color: #FFFFFF;}
+        #introduction .container .left .invite input::-ms-input-placeholder{ color: #FFFFFF;}
+        #introduction .container .left .invite a{ font-size: 14px; color: #CD5733; display:block; float: right; width: 122px;height: 38px; background: #FFC94B;
+            border: 5px solid #082948;border-radius: 10px; text-align: center; line-height: 38px;margin: 58px 86px 0 0;
+        }
+        #introduction .container .left .search{ margin-top: 65px;}
+        #introduction .container .left .search>span{ font-size: 14px; color: #FFFFFF; display: block; width: 70px; height: 46px; line-height: 46px; float: left;}
+        #introduction .container .left .search a{ font-size: 14px; font-family: "Roboto-Medium"; color: #FFFFFF; display: block; float: left; width: 252px; height: 46px;
+            background: #397AAC; line-height: 46px; margin-left: 38px;border-radius: 5px; font-weight: bold;
+        } 
+
+        #slide{ border-bottom: 1px solid #e4e4e4; height: 138px; overflow: hidden; position: relative;}
+        #slide .container ul li{ display: none; margin-top: 38px;}
+        #slide .container ul .show{display: block;}
+        #slide .container ul li h3{ font-size: 14px; font-family: 'Myriad Pro'; color: #144973;}
+        #slide .container ul li p{ font-size: 13px; color: #4C4C4C; font-style: italic; display: block; width: 427px;margin-top: 17px;}
+        #slide .container ol{position: absolute; top:7px; left:375px;}
+        #slide .container ol li{ display: block;width: 6px; height: 6px; border-radius: 50%; background: #B1BDC6; float: left;margin: 0 3px; cursor: pointer;
+             
+        }
+        #slide .container ol .active{ background: #144973;}
+
+        #features{ height: 296px; overflow: hidden; position: relative;}
+        #features ul{ display: grid; grid-template-columns: 1fr 1fr 1fr; margin-top: 50px;}
+        #features ul li{ overflow: hidden; text-align: center;}
+        #features ul li span{ font-size: 32px; display: block; width: 66px; height: 66px; border-radius: 50%; background: #ffc544;
+            text-align: center; line-height: 74px; color: #FFFFFF;font-weight: bold;margin-left: 125px;
+        }
+        #features ul li h2{ color: #144B74; font-size: 18px; font-family: Roboto; margin-top: 22px; }
+        #features ul li p{ color: #343333; font-size: 13px; margin-top: 25px; display: block; width: 235px; margin-left: 40px;}
+
+        #buy{ height: 185px;background: #E1E4E7; overflow: hidden; position: relative;}
+        #buy h2{ color: #184E7A; font-size: 26px; font-weight: normal;margin: 44px 0 0 596px;}
+        #buy ul li{ float: left;}
+        #buy ul li a{ display: block; height: 40px; border: 4px solid #FFFFFF; border-radius: 4px; text-align: center; line-height: 40px; margin-top: 30px;
+            box-shadow:0px 0px 0px 5px #e6e8ea;
+        }
+        #buy ul li:nth-child(1) a{ color: #B44C2C; width: 240px; background: #FFC849; margin-left: 535px;}
+        #buy ul li:nth-child(2) a{ color: #FFFFFF; width: 270px; background: #3677a8; margin-left: 20px;}
+
+        #ad{ height: 158px; overflow: hidden;}
+        #ad div{ float: left; margin-top: 44px; cursor: pointer;}
+        #ad .ad1{ margin-left: 305px;}
+        #ad .ad2{ margin-left: 5px;}
+
+        #about{ height: 312px; border-bottom: 1px solid #155a9b; background: #134e8f; overflow: hidden;}
+        #about .container{ display: grid; grid-template-columns: auto auto; margin-top: 43px;}
+        #about .container .left h2{ font-size: 18px; font-family: Roboto; color: #FFFFFF;}
+        #about .container .left p{ font-size: 13px; color: #DDE6ED; margin-top: 24px; width: 615px;}
+        #about .container .right{ margin-left: 80px; }
+        #about .container .right h2{ color: #FFFFFF;}
+        #about .container .right h3{ color: #DDE6ED; margin-top: 24px;}
+        #about .container .right ul{ color: #DDE6ED; margin-top: 28px;}
+        #about .container .right ul li{ margin-top: 12px;}
+        #about .container .right ul p{ font-size: 11px;}
+        #about .container .right .line{ border-bottom: 1px solid #33659b; margin-top: 22px;}
+        #about .container .right ol{ margin-top: 17px;}
+        #about .container .right ol li{ float: left; margin-right: 9px; cursor: pointer;} 
+        #about .container .right ol li i{ color: #ffc545;}
+
+        footer{ height: 122px; background: #104475;}
+        footer .container .left{ margin-top: 41px;}
+        footer .container .left p{ font-size: 13px; color: #A2CDEE; margin-bottom: 16px;}
+        footer .container .left a{ padding-right:10px; margin-right: 10px; border-right: 1px solid #6b747d; color: #A2CDEE; font-size: 13px;}
+        footer .container .left a:last-child{ border-right: none;}
+        footer .container .right{ margin-top: 52px; color: #FFD055; cursor: pointer;}
+        </style>
+</head>
+<body>
+    <header class="container-fluid">
+        <div id="head" class="container">
+            <div class="head_logo">
+                <span style="color: #dde6ed;">METEOR</span><span style="color: #ffd156;">APP</span>
+            </div>
+            <ul class="head_list">
+                <li>
+                    <div><img src="./images/Group.png" alt="team" title="team"></div>
+                    <p>Meet our team</p>
+                </li>
+                <li>
+                    <div><img src="./images/MagnifyingGlass.png" alt="team" title="team"></div>
+                    <p>Find Other Apps!</p>
+                </li>
+                <li class="head_log clear">
+                    <a href="#" class="logIn">Log In</a><span style="color: #bbc7cf;">&nbsp;&nbsp;or&nbsp;&nbsp;</span>
+                    <a href="" class="signUp">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+        <div id="introduction" class="container-fluid">
+            <div class="container">
+                <div class="left">
+                        <h2>Lorem ipsum dolor <span style="color: #ffd156;">sit amet!</span></h2>
+                        <h3>Adipisicing elit, that's it!</h3>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque lorem ipsum dolor sit amet ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                        <div class="invite">
+                            <input type="email" placeholder="Your e-mail address">
+                            <a href="#">Get Invitation</a>
+                        </div>
+                        <div class="search">
+                            <span>Or you can</span>
+                            <a href="#">&nbsp;&nbsp;<span class="iconfont iconfangdajingbeifen" style="font-size: 17px; color: #0b314c;"></span>&nbsp;Search through our apps</a>
+                        </div>
+                </div>
+                <div class="right">
+                    <img src="./images/window.png" alt="App/Device/Browser Window" title="App/Device/Browser Window">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="slide" class="container-fluid">
+            <div class="container">
+                <ul>
+                    <li>
+                        <h3>Anna Doe<span style="font-family: 'Adobe Heiti Std R'; color: #272727;">,XYz etc.</span></h3>
+                        <p>“Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”</p>
+                    </li>
+                    <li class="show">
+                        <h3>Anna Doe<span style="font-family: 'Adobe Heiti Std R'; color: #272727;">,XYz etc.</span></h3>
+                        <p>“Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”</p>
+                    </li>
+                    <li>
+                        <h3>Anna Doe<span style="font-family: 'Adobe Heiti Std R'; color: #272727;">,XYz etc.</span></h3>
+                        <p>“Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”</p>
+                    </li>
+                    <li>
+                        <h3>Anna Doe<span style="font-family: 'Adobe Heiti Std R'; color: #272727;">,XYz etc.</span></h3>
+                        <p>“Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”</p>
+                    </li>
+                </ul>
+                <ol class="clear">
+                    <li></li>
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                </ol>
+            </div>
+        </div>
+        <div id="features" class="container">
+            <ul>
+                <li>
+                    <span class="iconfont iconxiangqingbeifen"></span>
+                    <h2>Consectetur Adi</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</p>
+                </li>
+                <li>
+                    <span class="iconfont iconren111"></span>
+                    <h2>Only The Best Team</h2>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                </li>
+                <li>
+                    <span class="iconfont icontime"></span>
+                    <h2>Fill Empty Shedules</h2>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat consectetur</p>
+                </li>
+            </ul>
+        </div>
+        <div id="buy" class="container-fluid">
+            <h2>Buy this theme for free! Wait what?</h2>
+            <ul>
+                <li>
+                    <a href="#">Do you like icecream? Sign Up!</a>
+                </li>
+                <li>
+                    <a href="#">Is it free? Really? Really? It’s free!</a>
+                </li>
+            </ul>
+        </div>
+        <div id="ad" class="container-fluid">
+            <div class="ad1">
+                <img src="./images/ad_1.png" alt="广告" title="广告">
+            </div>
+            <div class="ad2">
+                    <img src="./images/ad_2.png" alt="广告" title="广告">
+            </div>
+        </div>
+        <div id="about" class="container-fluid">
+            <div class="container">
+                <div class="left">
+                    <h2>About Us</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="right">
+                    <h2>Get in Touch</h2>
+                    <h3>Job inquiries? Want to say hi?</h3>
+                    <ul>
+                        <li><p class="iconfont iconshouji">&nbsp;(+00) 1234 56 789</p></li>
+                        <li><p class="iconfont iconyouxiang">&nbsp;doloremcorvi@meteortemplate.com</p></li>
+                        <li><p class="iconfont icondizhi">&nbsp;15th Avenue, 15 362, Colorado</p></li>
+                    </ul>
+                    <div class="line"></div>
+                    <ol>
+                        <li><i class="iconfont icontwitter"></i></li>
+                        <li><i class="iconfont iconfacebook"></i></li>
+                        <li><i class="iconfont iconV"></i></li>
+                        <li><i class="iconfont icontwitter"></i></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="container-fluid">
+        <div class="container">
+            <div class="left l">
+                <p class="copyRight">© 2012 MeteorAPP, All rights reserved</p>
+                <a href="#">Home</a><a href="#">About Us</a><a href="#">FAQ</a><a href="#">Blog</a>
+            </div>
+            <div class="right r">
+                <p class="iconfont iconxiaoxi1">&nbsp;&nbsp;Live Chat</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

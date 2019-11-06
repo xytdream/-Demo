@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,userscale=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>博文尚美</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        #banner{ position: relative;}
+        #banner .banner_img{ width: 100%;height: 469px; position: relative;}
+        #banner .banner_img li{ width: 100%; height: 100%; background: center 0 no-repeat;position: absolute;
+            top: 0;left: 0;opacity: 0;
+        }
+        #banner .banner_img li a{ display: block;width: 1352px;height: 100%; cursor: pointer;;}
+        #banner .banner_img .active{opacity: 1; z-index: 10;}
+        #banner .banner_btn{width:100%;position: absolute; bottom: 19px; font-size: 0; text-align: center;z-index: 99;}
+        #banner .banner_btn li{width: 12px; height: 12px;border: 1px #ffffff solid; border-radius: 50%; 
+            box-sizing: border-box;display: inline-block; margin: 0 6px;cursor: pointer;
+        }
+        #banner .banner_btn .active{background: white;}
+        
+        #service{overflow: hidden; min-height: 407px;}
+        .service_list ul{display: flex;}
+        .service_list ul li{float: left;margin-top: 20px;flex: 1;text-align: center;}
+        .service_list ul li div{ width: 102px;height: 102px; margin-left: 90px;}
+        .service_list ul li h3{ font-size: 18px; line-height: 36px;margin: 25px 0 11px 0; color: #434343; font-weight: bold;}
+        .service_list ul li p{ font-size: 14px; color: #6D6D6D;line-height: 22px;}
+        
+        #case{min-height: 460px; background-color: #f8f8f8;position: relative; overflow: hidden;}
+        #case .title h2{margin-top: 55px; color: #66C5B4;}
+        #case .case_list ul li{ float: left; margin: 28px 10px 0 10px;}
+        #case .case_list ul li img{ width: 339px; height: 181px;display: block;}
+        #case .more_btn{  width: 176px;height: 37px;text-align: center; background-color: #66C5B4; margin: 0 auto;
+            border-radius: 50px;margin-top: 36px; line-height: 37px;font-size: 14px;
+        }
+        #case .more_btn a{ display: block;color: #FFFFFF;}
+
+        #news{overflow: hidden; min-height: 450px;}
+        #news dl{margin-top: 48px;}
+        #news dt{ width: 234px;}
+        #news dd{ width: 846px;}
+        #news .news_list{ width: 100%;}
+        #news .news_list li{ width: 50%; float: left; margin-bottom: 48px;}
+        #news .news_data{ width: 71px;height: 70px; border-right: 1px  #DCDCDC solid; text-align: center;}
+        #news .news_data i{ font-size: 40px; color: #66C5B4; display: block; font-weight: bold;}
+        #news .news_data span{ font-size: 20px; color: #999999}
+        #news .news_text{ width: 310px;margin-left: 20px;}
+        #news .news_text h3{ font-size: 14px; color: #3F3F3F; line-height: 36px;}
+        #news .news_text p{ font-size: 12px; color: #A4A4A4; line-height: 21px;}
+    </style>
+</head>
+<body>
+    <header class="container-fluid">
+        <div class="container head">
+            <div class="logo l">
+                <img src="./img/logo.png" alt="logo" title="博文尚美">
+            </div>
+            <ul class="nav r"> 
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">PROTFOLIO</a></li>
+                <li><a href="#">SERVICE</a></li>
+                <li><a href="#">NEWS</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <section id="banner" class="container-fluid">
+            <ul class="banner_img">
+                <li class="active" style="background-image: url('./img/banner1.png');">
+                    <a href="#"></a>
+                </li>
+                <li style="background-image: url('./img/banner1.png');">
+                    <a href="#"></a>
+                </li>
+                <li style="background-image: url('./img/banner1.png');">
+                    <a href="#"></a>
+                </li>
+                <li style="background-image: url('./img/banner1.png');">
+                    <a href="#"></a>
+                </li>
+            </ul>
+            <ol class="banner_btn">
+                <li></li>
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+            </ol>
+        </section>
+
+        <section id="service" class="container">
+            <div class="title">
+                <h2>服务范围</h2>
+                <p>OUR SERVICE</p>
+            </div>
+            <div class="service_list">
+                <ul>
+                    <li>
+                        <div>
+                            <img src="./img/web1.png" alt="web design" title="web design">
+                        </div>
+                        <h3>1.WEB DESIGN</h3>
+                        <p>企业品牌网站设计/手机网站制作<br>动画网站创意设计</p>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="./img/graphic1.png" alt="graphic design" title="graphic design">
+                        </div>
+                        <h3>2.GRAPHIC DESIGN</h3>
+                        <p>标志logo设计/产品宣传册设计<br>企业广告/海报设计</p>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="./img/e-bussiness1.png" alt="e-business plan" title="e-business plan">
+                        </div>
+                        <h3>3.E-BUSINESS PLAN</h3>
+                        <p>淘宝/天猫装修设计及运营推广<br>企业微博、微信营销</p>            
+                    </li>
+                    <li>
+                        <div>
+                            <img src="./img/mail1.png" alt="mailboxagents" title="mailboxagents">
+                        </div>
+                        <h3>4.MAILBOXAGENTS</h3>
+                        <p>腾讯/网易企业邮箱品牌代理<br>个性化邮箱定制开发</p> 
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="case" class="container-fluid">
+            <div class="container">
+                <div class="title">
+                    <h2>{ 客户案例 } </h2>
+                    <p>With the best professional technology, to design the best innovative web site</p>
+                </div>
+                <div class="case_list">
+                    <ul class="clear">
+                        <li>
+                            <a href="#"><img src="./img/case1.png" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="./img/case2.png" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="./img/case3.png" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="more_btn">
+                    <a href="#">VIEW MORE</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="news" class="container">
+            <div class="title">
+                <h2>最新资讯</h2>
+                <p>TEH LATEST NEWS</p>
+            </div>
+            <dl>
+                <dt class="l">
+                    <img src="./img/xs1.png" alt="">
+                </dt>
+                <dd class="l">
+                    <ul class="news_list">
+                        <li>
+                            <div class="news_data l">
+                                <i>09</i>
+                                <span>Jan</span>
+                            </div>
+                            <div class="news_text l">
+                                <h3><a href="#">网站排名进入前三的技巧说明</a></h3>
+                                <p>很多客户都会纳闷为什么自己的网站老是优化不到搜索引擎首页，更不用说进首页前三了。那么网站优...</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="news_data l">
+                                <i>08</i>
+                                <span>Jan</span>
+                            </div>
+                            <div class="news_text l">
+                                <h3><a href="#">flash网站制作的优缺点</a></h3>
+                                <p>虽然HTML5程序语言出现，大有逐渐代替Flash网站制作的意味，但是过于生硬的HTML5动画效果，始终...</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="news_data l">
+                                <i>07</i>
+                                <span>Jan</span>
+                            </div>
+                            <div class="news_text l">
+                                <h3><a href="#">做个网站多少钱？</a></h3>
+                                <p>“做个网站多少钱？”很多客户打电话过来直接第一句就抛出来的问题。这好比买辆车多少钱，你是要...</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="news_data l">
+                                <i>06</i>
+                                <span>Jan</span>
+                            </div>
+                            <div class="news_text l">
+                                <h3><a href="#">哪些网站优化手法属于网站过度优化</a></h3>
+                                <p>大部分人都想让自己的网站，一夜之间出现在搜索引擎首页，独占鳌头。但是事实告诉我们罗马不是一......</p>
+                            </div>
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+        </section>
+    </main>
+    <footer class="container-fluid">
+        <div class="container">
+            <p class="l">Copyright 2006- 2014 Bowenshangmei Culture All Rights Reserved</p>
+            <div class="r">
+               <a href="#">Home</a>     |     <a href="#">About</a>     |     <a href="#">Portfolio</a>     |     <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

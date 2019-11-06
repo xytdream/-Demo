@@ -1,0 +1,13 @@
+*{ margin: 0; padding: 0;}
+a{ text-decoration: none; color: #ffffff;}
+ul,ol{ list-style: none;}
+h1,h2,h3{ font-size: 16px;}
+img{ display: block;}
+body{ font-family: Arial,"微软雅黑";}
+
+.l{ float: left;}
+.r{ float: right;}
+.clear:after{ content: ''; display: block;clear: both;}
+
+.container{ width: 944px; margin: 0 auto; position: relative; }
+.container-fluid{ width: 1600px; margin: 0 auto;}

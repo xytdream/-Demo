@@ -1,0 +1,33 @@
+body,tr,td,div,span{
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family:"微软雅黑","仿宋","宋体",arial;
+  font-size: 12px;
+  line-height: 200%;
+}
+.banner{
+  background: url(../images/banner.jpg) no-repeat center;
+}
+
+#nav a{
+  font-size: 16px;
+  font-weight: bold;
+}
+#nav a:link,#nav a:visited{
+  text-decoration: none;
+  color: #39C;
+}
+#nav a:hover{
+  color:red;
+}
+
+.silver a:link, .silver a:visited{
+  color:red;
+  text-decoration: none;
+}
+
+.redTitle{
+  color: red;
+}
