@@ -24,7 +24,7 @@
 </body>
 ```
 
-![最终效果图]([https://github.com/xytdream/-Demo/blob/master/%E8%A1%A8%E5%8D%95%EF%BC%88%E7%BB%93%E5%90%88JS%EF%BC%89/images/%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C%E5%9B%BE.png](https://github.com/xytdream/-Demo/blob/master/表单（结合JS）/images/最终效果图.png))
+![最终效果图](https://github.com/xytdream/-Demo/blob/master/表单（结合JS）/images/最终效果图.png)
 
 样式怎么实现的就暂时不说了。这个readme主要是想记下我是如何使用js实现这个验证的以及我遇到的问题。
 
@@ -122,7 +122,7 @@ var email = document.querySelector("form .email")
 
 一开始我在完成正则表达式之后，我想着既然是用来验证输入字段的模式，就顺手将这个属性的值设为了我刚得的正则，后来我在email的值已经通过了正则验证的情况下点击了注册按钮，却出现了错误，提示"请与所请求的格式保持一致"，这个问题我到现在还是有点想不明白。
 
-![格式错误提示]([https://github.com/xytdream/-Demo/blob/master/%E8%A1%A8%E5%8D%95%EF%BC%88%E7%BB%93%E5%90%88JS%EF%BC%89/images/%E6%A0%BC%E5%BC%8F%E9%94%99%E8%AF%AF.png](https://github.com/xytdream/-Demo/blob/master/表单（结合JS）/images/格式错误.png))
+![格式错误提示](https://github.com/xytdream/-Demo/blob/master/表单（结合JS）/images/格式错误.png)
 
 ##### 两次密码一致验证
 
