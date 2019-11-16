@@ -60,6 +60,8 @@ var userName = document.querySelector("form .userName")
 >
 > **提示：** 该事件类似于 [onchange](https://www.runoob.com/jsref/event-onchange.html) 事件。不同之处在于 oninput 事件在元素值发生变化是立即触发， onchange 在元素失去焦点时触发。另外一点不同是 onchange 事件也可以作用于 <keygen> 和 <select> 元素。
 
+
+
 ```javascript
 //在userName输入框中的值有变化时即触发判断
 userName.oninput = function(){
