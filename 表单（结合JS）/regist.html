@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <link rel="stylesheet" href="./css/regist.css">
+    <link rel="stylesheet" href="./iconfont/iconfont.css">
+    <script>
+      window.onload = function(){
+        //获取到input输入框的对象
+        var userName = document.querySelector("form .userName")
+        var email = document.querySelector("form .email")
+        var password = document.querySelector("form .password")
+        var password2 = document.querySelector("form .password2")
+
+        // function setPlaceholder(obj,phStr){
+        //   obj.onfocus = function(){
+        //     obj.placeholder = ""
+        //   }
+        //   obj.onblur = function(){
+        //     obj.placeholder = phStr
+        //   }
+        // }
+        
+        // setPlaceholder(userName,"用户名")
+        // setPlaceholder(email,"邮箱")
+        // setPlaceholder(password,"密码")
+        // setPlaceholder(password2,"确认密码")
+        
+        /*
+        * 第二种方法，给对象加监听
+        */
+        //给邮箱输入框添加监听事件（获得焦点时）
+        // email.addEventListener("focus",function(){
+        //   // 设置placeholder为空
+        //   email.placeholder = ""
+        // })
+        //给邮箱输入框添加监听事件（失去焦点时）
+        // email.addEventListener("blur",function(){
+        //   // 设置placeholder为“邮箱”
+        //   email.placeholder = "邮箱"
+        // })
+
+
+        /*
+        * 监测邮箱格式是否正确
+        * 使用正则表达式
+        * 
+        * 电子邮件：
+        *       adc123              .xxx                          @     aaa            .com             .cn
+        *       任意字母数字下划线    .任意字母数字下划线(可有可无)   @     任意字母数字    .任意字母(2-5位)  .任意字母(2-5位)（可有可无）
+        *       \w{3,}              (\.\w+)*                      @     [A-z0-9]+       (\.[A-z]{2,5}){1,2} 
+        */
+        var emailWarn = document.getElementById("emailWarn")
+        // console.log(emailWarn)
+        var emailReg = /^\w{3,}(\.\w+)*@[A-z0-9]+(\.[A-z]{2,5}){1,2}$/
+        
+        // email.pattern = emailReg;
+
+        // console.log(emailReg.test("xytdream@12.com"))
+
+        //在email输入框失去焦点后开始判断
+        email.oninput = function(){
+          emailWarn.className += " warnText iconduicuo";
+          emailWarn.style.display = "";
+          if( email.value == ""){
+            emailWarn.innerHTML = "邮件不能为空！"
+          }else if(!emailReg.test(email.value)){
+            // console.log("邮件格式不正确！请重新输入!")
+            emailWarn.innerHTML = "邮件格式不正确"
+          }else{
+            emailWarn.className = "iconfont";
+            emailWarn.style.display = "none";
+          }
+        }
+
+        // var userName = document.getElementById("userName");
+        var userNameWarn = document.getElementById("userNameWarn");
+
+        //在userName输入框是去焦点后开始判断
+        userName.oninput = function(){
+          if( userName.value == ""){
+            userNameWarn.className += " warnText iconduicuo";
+            userNameWarn.style.display = "";
+            userNameWarn.innerHTML = "用户名不能为空"
+          }else{
+            userNameWarn.className = "iconfont";
+            userNameWarn.style.display = "none";
+          }
+        }
+
+        //判断两次密码是否一致
+        var passwordWarn = document.getElementById("passwordWarn");
+
+        function passwordSame(){
+          if(!(password.value == password2.value)){
+            passwordWarn.className += " warnText iconduicuo";
+            passwordWarn.style.display = "";
+            passwordWarn.innerHTML = "两次密码不一致"
+          }else{
+            passwordWarn.className = "iconfont";
+            passwordWarn.style.display = "none";
+          }
+        }
+        
+        password.oninput = passwordSame;
+        password2.oninput = passwordSame;
+        // password2.oninput = function(){
+        //   if(!(password.value == password2.value)){
+        //     passwordWarn.className += " warnText iconduicuo";
+        //     passwordWarn.style.display = "";
+        //     passwordWarn.innerHTML = "两次密码不一致"
+        //   }else{
+        //     passwordWarn.className = "iconfont";
+        //     passwordWarn.style.display = "none";
+        //   }
+        // }
+        
+        
+        
+
+      }; 
+    </script>
+</head>
+<body>
+  <form action="#">
+    <h2>注 册</h2>
+    <input type="text" placeholder="用户名" class="userName" required><span class="iconfont" id="userNameWarn" style="display: none;">用户名不能为空</span>
+    <input type="email" placeholder="邮箱" class="email" required><span class="iconfont" id="emailWarn" style="display: none;"></span>
+    <input type="password" placeholder="密码" class="password" required>
+    <input type="password" placeholder="确认密码" class="password2" required><span class="iconfont" id="passwordWarn" style="display: none;">两次密码不一致</span>
+    <input type="submit" value="注册">
+    <a href="#">已有账户，去登录</a>
+  </form>
+</body>
+</html>
