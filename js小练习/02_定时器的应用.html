@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        body{position: relative;}
+        #box1{ width: 100px; height: 100px; background: red; margin-top: 20px; position: absolute;}
+        #box2{ width: 100px; height: 100px; background: yellow; margin-top: 20px; position: absolute; top: 200px;}
+        .line{width: 1px;height: 500px;position: absolute; left: 800px;background: black;}
+    </style>
+    <script>
+        window.onload = function(){
+            // 获取按钮btn01对象
+            var btn01 = document.getElementById("btn01")
+            var btn02 = document.getElementById("btn02")
+            var btn03 = document.getElementById("btn03")
+            var btn04 = document.getElementById("btn04")
+            // 获取box1对象
+            var box1 = document.getElementById("box1")
+            var box2 = document.getElementById("box2")
+            
+            //点击btn01使box1向右移动(通过增大left值实现)
+            // 为btn01绑定单击响应函数
+            btn01.onclick = function(){
+                move(box1, "left", 800, 10)
+            }
+            // btn01.onclick = function(){
+            //     //关闭上一个开启的定时器
+            //     clearInterval(timer)
+
+            //     // 开启一个定时器，用来执行动画效果
+            //     timer = setInterval(function(){
+            //         //获取box1原来的left值
+            //         var oldValue = parseInt(getStyle(box1,"left"))
+                    
+            //         //在旧值的基础上生成一个新值
+            //         var newValue = oldValue + speed;
+
+            //         if(newValue > 800){
+            //             newValue = 800;
+            //         }
+
+            //         //将新值赋值给box1的left
+            //         box1.style.left = newValue + "px";
+
+            //         if(newValue == 800){
+            //             clearInterval(timer)
+            //         }
+            //     },30)   
+            // }
+
+            //点击btn02使剥削box1向左移动(通过减小left值实现)
+            // 为btn01绑定单击响应函数
+            btn02.onclick = function(){
+                move(box1, "left", 0, 49)
+            };
+
+            btn03.onclick = function(){
+                move(box2, "left", 800,10)
+            }
+            btn04.onclick = function(){
+                move(box2, "width" , 800, 10 , function(){
+                    move(box2, "height" , 250, 10 , function(){
+                        move(box2, "top" , 0, 10 , function(){
+                            move(box2, "width" , 100, 10 , function(){
+                    
+                            })
+                        })
+                    })
+                })
+            }
+                
+            
+        }
+
+        // 定义一个变量。保存定时器标识
+        // var timer; 
+        //创建一个用来和执行移动动画效果的函数
+        /**
+         * 参数：
+         *  1.obj:动画执行的对象
+         *  2.attr:执行动画的样式 
+         *  3.target:动画执行的目标位置
+         *  4.speed:移动速度
+         *  5.callback: 回调函数，在动画执行完毕后执行（该参数可传可不传）
+         */
+        function move(obj , attr , target , speed , callback){
+            //关闭上一个开启的定时器
+            clearInterval(obj.timer)
+
+            //获取对象执行动画样式的当前值
+            var current = parseInt(getStyle(obj,attr))
+            // 判断speed的正负值
+            if(target < current){
+                speed = -speed;
+            }
+
+            // 开启一个定时器，用来执行动画效果
+            //给执行动画对象obj添加一个timer属性，用来保存它自己的定时器标识。避免不同的元素共用一个定时器标识
+            obj.timer = setInterval(function(){
+                //获取对象执行动画样式的当前值
+                var oldValue = parseInt(getStyle(obj,attr))
+                
+                //在旧值的基础上生成一个新值
+                var newValue = oldValue + speed;
+                
+                if( (speed > 0 && newValue >= target) || (speed < 0 && newValue <= target) ){
+                    newValue = target;
+                }
+
+                //将新值赋值给box1的left
+                obj.style[attr] = newValue + "px";
+
+                if(newValue == target){
+                    //到达目标位置，关闭当前定时器
+                    clearInterval(obj.timer);
+
+                    //调用回调函数
+                    callback && callback();
+                }
+            },30)   
+        }
+        
+    </script>
+    <script src="./tool.js"></script>
+</head>
+<body>
+    <button id="btn01">box1向右移动</button>
+    <button id="btn02">box1向左移动</button>
+    <button id="btn03">box2向右移动</button>
+    <button id="btn04">测试</button>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div class="line"></div>
+</body>
+</html>

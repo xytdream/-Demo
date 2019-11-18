@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box1{ width: 100px; height: 100px; background: red; margin-top: 50px;}
+    </style>
+    <script src="./tool.js"></script>
+    <script>
+        window.onload = function(){
+            var box1 = document.getElementById("box1")
+            var btn01 = document.getElementById("btn01")
+            
+            btn01.onclick = function(){
+                
+                alert(getStyle(box1,"width"))
+            }
+
+            function getStyle(obj,name){
+                if(window.getComputedStyle){
+                    // return getComputedStyle(obj,null)[name]
+                    //在新版中，已经抛弃了伪类元素的使用，所以可以不用写第二个参数null
+                    return getComputedStyle(obj)[name]
+                }else{
+                    return obj.currentStyle[name]
+                }
+            }
+            
+        }
+        
+    </script>
+</head>
+<body>
+    <button id="btn01">点我一下</button>
+    <div id="box1"></div>
+</body>
+</html>
