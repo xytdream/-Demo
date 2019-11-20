@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图</title>
+
+    <style>
+        *{ margin: 0; padding: 0;}
+        a{ text-decoration: none;}
+        ol,ul{ list-style: none;}
+
+        #carousel{ margin: 20px auto; width: 980px; height: 540px; overflow: hidden; position: relative;}
+        #imgList{ height: 540px; position: absolute;}
+        #imgList li{ float: left; margin: 0 10px;}
+        #navDot{position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);}
+        #navDot li{ float: left;  width: 10px;height: 10px; border-radius: 50%; background: #ffffff; margin: 0 3px; cursor: pointer; opacity: .5;}
+        #navDot li:hover{ background: gray;}
+        /* #navDot .active{ background: gray;} */
+    </style>
+    <script src="./tool.js"></script>
+    <script>
+        window.onload = function(){
+            /**
+            * 设置imgList的宽
+            */
+            //获取imgList对象
+            var imgList = document.getElementById("imgList");
+            //获取轮播图图片的数量
+            var imgNum = document.querySelectorAll("#imgList li")
+            //设置宽度
+            imgList.style.width = 980*imgNum.length + "px"
+            //定义一个index变量，用来保存索引值
+            var index = 0;
+
+            /**
+            * 设置显示图片对应导航点的效果
+            */
+            //获取到所有导航点对象
+            var allDot = document.querySelectorAll("#navDot li")
+            //设置对应导航点的背景色
+            allDot[index].style.background = "gray"
+
+            //给所有导航点添加一个单击响应函数
+            //遍历所有导航点
+            for(var i = 0; i<allDot.length; i++){
+                //给每个导航点添加一个num属性，用来指向它的索引
+                allDot[i].num = i
+
+                //给每个导航点添加单击响应函数
+                allDot[i].onclick = function(){
+                    //关闭自动切换
+                    clearInterval(timer)
+                    //将导航点的索引赋给全局索引
+                    index = this.num;
+                    //设置选中导航点
+                    selectDot();
+                    //切换图片
+                    //调用move函数，move函数详情看tool.js
+                    move(imgList, "left", -980*index, 30, function(){
+                        //动画执行完毕后，开启自动切换
+                        autoChange();
+                    })
+                }
+            }
+
+            //开启自动切换图片
+            autoChange()
+
+            //设置选中导航点的方法
+            function selectDot(){
+                //判断当前索引是否是最后一张图片
+                if( index == imgNum.length - 1){
+                    //进入这个判断后，表明此时显示的是最后一张图，因为最后一张图和第一张图是一样的，所以我们用最后一张图假装是第一张图
+                    //将索引设置为第一张图的索引，这样就可以将选中导航点变为第一个导航点
+                    index = 0
+                    //通过CSS将最后一张图切换为第一张图，这样就可以做到以假乱真
+                    imgList.style.left = 0;
+                }
+
+                //将所有导航点初始化
+                for(var i = 0; i<allDot.length; i++){
+                    allDot[i].style.background = ""
+                }
+                //将点击的导航点的背景设为选中状态的颜色
+                allDot[index].style.background = "gray"
+            }
+
+            //定义一个timer变量，用于保存自动切换定时器标识
+            var timer
+            //自动切换图片方法
+            function autoChange(){
+                timer = setInterval(function(){
+                    index++;
+                    index = index%imgNum.length
+                    move(imgList, "left", -980*index, 30, function(){
+                        //每自动切换一张图片后，再自动更新选中的导航点
+                        selectDot()
+                    })
+                },3000)
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="carousel">
+        <!-- 轮播图图片列表 -->
+        <ul id="imgList">
+            <li><img src="./images/1.jpg" alt="美懵1"></li>
+            <li><img src="./images/2.jpg" alt="美懵2"></li>
+            <li><img src="./images/3.jpg" alt="美懵3"></li>
+            <li><img src="./images/4.jpg" alt="美懵4"></li>
+            <li><img src="./images/5.jpg" alt="美懵5"></li>
+            <li><img src="./images/6.jpg" alt="美懵5"></li>
+            <!--这个li用于在轮播动画效果中模拟第一张图片-->
+            <li><img src="./images/1.jpg" alt="美懵1"></li>
+        </ul>
+        <!-- 轮播图导航点列表 -->
+        <ul id="navDot">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>
